@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    LaravelKU
+                    Laravel OJI
                 </div>
 
                 <div class="links">
