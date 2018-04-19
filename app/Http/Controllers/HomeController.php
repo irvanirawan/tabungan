@@ -8,6 +8,7 @@ use App\Role;
 use App\Permission;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Zizaco\Entrust\EntrustPermission;
+use Auth;
 
 
 class HomeController extends Controller
@@ -37,8 +38,59 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function tes()
+    public function datapetugas()
     {
-        return view('home');
+        return view('datapetugas');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function datakelas()
+    {
+        return view('datakelas');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function datanasabah()
+    {
+        return view('datanasabah');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function transaksi()
+    {
+        $user = Auth::User()->email;
+        return view('transaksi',['user' => $user]);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function laporannasabah()
+    {
+        return view('laporanpernasabah');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function laporanperiode()
+    {
+        return view('laporanperperiode');
     }
 }

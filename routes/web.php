@@ -18,12 +18,18 @@ Route::get('/admin/table', function () {
     return view('admin.table');
 });
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/datapetugas', 'HomeController@datapetugas')->name('datapetugas');
+Route::get('/datakelas', 'HomeController@datakelas')->name('datakelas');
+Route::get('/datanasabah', 'HomeController@datanasabah')->name('datanasabah');
+Route::get('/transaksi', 'HomeController@transaksi')->name('transaksi');
+Route::get('/laporanpernasabah', 'HomeController@laporannasabah')->name('laporannasabah');
+Route::get('/laporanperperiode', 'HomeController@laporanperiode')->name('laporanperiode');
 
 // Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 //     Route::get('/', 'AdminController@welcome');
