@@ -78,6 +78,7 @@
                   <label class="control-label col-sm-3" for="Alamat" style="margin-top: 5px;">Transaksi:</label>
                   <div class="col-sm-9">
                     <select class="form-control select2" style="width: 226px;">
+                      <option>All</option>
                       <option>Setoran</option>
                       <option>Tarikan</option>
                     </select>

@@ -40,7 +40,7 @@
     <form method="POST" action="{{ route('login') }}">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Username" value="{{ old('email') }}" name="email" id="email">
+        <input type="text" class="form-control" placeholder="Username" value="{{ old('email') }}" name="email" id="email">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       @if ($errors->has('email')) {{ $errors->first('email') }} @endif
@@ -74,8 +74,8 @@
     </div> -->
     <!-- /.social-auth-links -->
 
-    <a href="#">Lupa password</a><br>
-    <a href="{{route('register')}}" class="text-center">Daftar</a>
+    <!-- <a href="#">Lupa password</a><br> -->
+    <!-- <a href="{{route('register')}}" class="text-center">Daftar</a> -->
 
   </div>
   <!-- /.login-box-body -->

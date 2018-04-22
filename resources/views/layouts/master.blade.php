@@ -188,8 +188,8 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{route('home')}}"><i class="fa fa-home"></i> <span>Halaman Utama</span></a></li>
         <li><a href="{{route('datapetugas')}}"><i class="fa fa-address-card"></i> <span>Data Petugas</span></a></li>
-        <li><a href="{{route('datakelas')}}"><i class="fa fa-book"></i> <span>Data Kelas</span></a></li>
-        <li><a href="{{route('datanasabah')}}"><i class="fa fa-user"></i> <span>Data Nasabah</span></a></li>
+        <li><a href="{{route('kelas')}}"><i class="fa fa-book"></i> <span>Data Kelas</span></a></li>
+        <li><a href="{{route('nasabah')}}"><i class="fa fa-user"></i> <span>Data Nasabah</span></a></li>
         <li><a href="{{route('transaksi')}}"><i class="fa fa-money"></i> <span>Transaksi</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-archive"></i> <span>Laporan</span>

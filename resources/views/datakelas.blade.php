@@ -37,18 +37,14 @@
                 </tr>
                 </thead>
                 <tbody>
+@foreach($data as $key => $k)
                 <tr>
-                  <td>1</td>
-                  <td>P18</td>
-                  <td>Paud 2018</td>
-                  <td><a href="" title="Edit"><i class="fa fa-pencil"></i></a> | <a href="" title="Hapus"><i class="fa fa-trash"></i></a></td>
+                  <td>{{$key+1}}</td>
+                  <td>{{$k->id_kelas}}</td>
+                  <td>{{$k->nama}}</td>
+                  <td><a href="{{route('kelas')}}/edit/{{$k->id}}" title="Edit"><i class="fa fa-pencil"></i></a> | <a href="{{route('kelas')}}/delete/{{$k->id}}" onclick="return confirm('Klik OK Untuk Hapus?');" title="Hapus"><i class="fa fa-trash"></i></a></td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>TK18</td>
-                  <td>Taman Kanak kanak 2018</td>
-                  <td><a href=""><i class="fa fa-pencil"></i></a> | <a href=""><i class="fa fa-trash"></i></a></td>
-                </tr>
+@endforeach
                 </tbody>
                 <!-- <tfoot>
                 <tr>
@@ -75,19 +71,19 @@
         <h4 class="modal-title">Form Tambah Kelas</h4>
       </div>
       <div class="modal-body">
- <form class="form-horizontal" action="/action_page.php">
-
+ <form class="form-horizontal" method="POST" action="{{route('tambahkelas')}}">
+{{csrf_field()}}
   <div class="form-group">
     <label class="control-label col-sm-2" for="ID Petugas">ID Kelas:</label>
     <div class="col-sm-10">
-      <input type="ID Petugas" class="form-control" id="ID Petugas" placeholder="ID Petugas">
+      <input type="text" name="id_kelas" class="form-control" id="ID Petugas" placeholder="ID Kelas">
     </div>
   </div>
 
   <div class="form-group">
     <label class="control-label col-sm-2" for="Nama">Nama:</label>
     <div class="col-sm-10">
-      <input type="Nama" class="form-control" id="Nama" placeholder="Nama">
+      <input type="text" name="nama" class="form-control" id="Nama" placeholder="Nama">
     </div>
   </div>
 
@@ -112,6 +108,14 @@
 <script src="{{asset('AdminLTE-2.4.2/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('AdminLTE-2.4.2/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
+@if(Session::has('deletekelas'))
+window.onload = function(){alert("Data Telah Dihapus");
+};
+@endif
+@if(Session::has('tambahkelas'))
+window.onload = function(){alert("Data Telah Ditambah");
+};
+@endif
   $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable({

@@ -40,24 +40,17 @@
                 </tr>
                 </thead>
                 <tbody>
+@foreach($data as $key => $n)
                 <tr>
-                  <td>1</td>
-                  <td>1001</td>
-                  <td>Agung</td>
-                  <td>Paud 2018</td>
-                  <td>08912345</td>
-                  <td>Rp. 1.200.000</td>
+                  <td>{{$key+1}}</td>
+                  <td>{{$n->id_nasabah}}</td>
+                  <td>{{$n->nama}}</td>
+                  <td>{{$n->kelas}}</td>
+                  <td>{{$n->telp}}</td>
+                  <td>Rp. {{$n->saldo}}</td>
                   <td><a href="" title="Edit"><i class="fa fa-pencil"></i></a> | <a href="" title="Hapus"><i class="fa fa-trash"></i></a></td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>1002</td>
-                  <td>Indah</td>
-                  <td>Paud 2018</td>
-                  <td>08912345</td>
-                  <td>Rp. 900.000</td>
-                  <td><a href=""><i class="fa fa-pencil"></i></a> | <a href=""><i class="fa fa-trash"></i></a></td>
-                </tr>
+@endforeach
                 </tbody>
                 <!-- <tfoot>
                 <tr>
@@ -87,9 +80,9 @@
  <form class="form-horizontal" action="/action_page.php">
 
   <div class="form-group">
-    <label class="control-label col-sm-4" for="ID Petugas">ID Nasabah:</label>
+    <label class="control-label col-sm-4" for="ID Nasabah">ID Nasabah:</label>
     <div class="col-sm-8">
-      <input type="ID Petugas" class="form-control" id="ID Petugas" placeholder="ID Petugas">
+      <input type="ID Nasabah" class="form-control" id="ID Nasabah" placeholder="ID Nasabah">
     </div>
   </div>
 
@@ -101,18 +94,73 @@
   </div>
 
   <div class="form-group">
-    <label class="control-label col-sm-4" for="Alamat">Kelas:</label>
+    <label class="control-label col-sm-4" for="Kelas">Kelas:</label>
     <div class="col-sm-8">
-      <input type="Alamat" class="form-control" id="Alamat" placeholder="Alamat">
+      <input type="Kelas" class="form-control" id="Kelas" placeholder="Kelas">
+    </div>
+  </div>
+
+  
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="Telepon">Orang Tua:</label>
+    <div class="col-sm-8">
+      <input type="Orang Tua" class="form-control" id="Orang Tua" placeholder="Orang Tua">
     </div>
   </div>
 
   <div class="form-group">
+    <label class="control-label col-sm-4" for="Tempat Lahir">Tempat Lahir:</label>
+    <div class="col-sm-8">
+      <input type="Tempat Lahir" class="form-control" id="Tempat Lahir" placeholder="Tempat Lahir">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="Tgl Lahir">Tgl Lahir:</label>
+    <div class="col-sm-8">
+      <input type="Tgl Lahir" class="form-control" id="Tgl Lahir" placeholder="Tgl Lahir">
+    </div>
+  </div>
+
+<div class="form-group">
     <label class="control-label col-sm-4" for="Telepon">Telepon:</label>
     <div class="col-sm-8">
       <input type="Telepon" class="form-control" id="Telepon" placeholder="Telepon">
     </div>
   </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="Saldo">Saldo:</label>
+    <div class="col-sm-8">
+      <input type="Saldo" class="form-control" id="Saldo" placeholder="Saldo">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="Username">Username:</label>
+    <div class="col-sm-8">
+      <input type="Username" class="form-control" id="Username" placeholder="Username">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="Password">Password:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="Password" placeholder="Password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="Status">Status:</label>
+    <div class="col-sm-8">
+                    <select class="form-control select2" style="width: 226px;">
+                      <option>All</option>
+                      <option>Aktif</option>
+                      <option>Tidak Aktif</option>
+                    </select>
+                  </div>
+                </div>
 
    <div class="form-group">
     <div class="col-sm-offset-4 col-sm-8">

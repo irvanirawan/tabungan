@@ -40,22 +40,18 @@
                 </tr>
                 </thead>
                 <tbody>
+
+@foreach($data as $key => $p)
                 <tr>
-                  <td>1</td>
-                  <td>001</td>
-                  <td>Irvan</td>
-                  <td>Tangerang</td>
-                  <td>08123</td>
-                  <td><a href="" title="Edit"><i class="fa fa-pencil"></i></a> | <a href="" title="Hapus"><i class="fa fa-trash"></i></a></td>
+                  <td>{{$key+1}}</td>
+                  <td>{{$p->id_petugas}}</td>
+                  <td>{{$p->nama}}</td>
+                  <td>{{$p->alamat}}</td>
+                  <td>{{$p->telp}}</td>
+                  <td><a href="{{route('datapetugas')}}/edit/{{$p->id}}" title="Edit"><i class="fa fa-pencil"></i></a> | <a href="{{route('datapetugas')}}/delete/{{$p->id}}" onclick="return confirm('Klik OK Untuk Hapus');" title="Hapus"><i class="fa fa-trash"></i></a></td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>002</td>
-                  <td>Ferdi</td>
-                  <td>Tangerang</td>
-                  <td>02123456</td>
-                  <td><a href=""><i class="fa fa-pencil"></i></a> | <a href=""><i class="fa fa-trash"></i></a></td>
-                </tr>
+@endforeach
+                
                 </tbody>
                 <!-- <tfoot>
                 <tr>
@@ -82,33 +78,33 @@
         <h4 class="modal-title">Form Tambah Petugas</h4>
       </div>
       <div class="modal-body">
- <form class="form-horizontal" action="/action_page.php">
-
+ <form class="form-horizontal" method="POST" action="{{route('tambahdatapetugas')}}">
+{{csrf_field()}}
   <div class="form-group">
     <label class="control-label col-sm-2" for="ID Petugas">ID Petugas:</label>
     <div class="col-sm-10">
-      <input type="ID Petugas" class="form-control" id="ID Petugas" placeholder="ID Petugas">
+      <input type="ID Petugas" name="idpetugas" class="form-control" id="ID Petugas" placeholder="ID Petugas">
     </div>
   </div>
 
   <div class="form-group">
     <label class="control-label col-sm-2" for="Nama">Nama:</label>
     <div class="col-sm-10">
-      <input type="Nama" class="form-control" id="Nama" placeholder="Nama">
+      <input type="text" name="nama" class="form-control" id="Nama" placeholder="Nama">
     </div>
   </div>
 
   <div class="form-group">
     <label class="control-label col-sm-2" for="Alamat">Alamat:</label>
     <div class="col-sm-10">
-      <input type="Alamat" class="form-control" id="Alamat" placeholder="Alamat">
+      <input type="text" name="alamat" class="form-control" id="Alamat" placeholder="Alamat">
     </div>
   </div>
 
   <div class="form-group">
     <label class="control-label col-sm-2" for="Telepon">Telepon:</label>
     <div class="col-sm-10">
-      <input type="Telepon" class="form-control" id="Telepon" placeholder="Telepon">
+      <input type="text" name="telp" class="form-control" id="Telepon" placeholder="Telepon">
     </div>
   </div>
 
@@ -116,30 +112,27 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="Username">Username:</label>
     <div class="col-sm-10">
-      <input type="Username" class="form-control" id="Username" placeholder="Username">
+      <input type="text" name="username" class="form-control" id="Username" placeholder="Username">
     </div>
   </div>
 
    <div class="form-group">
     <label class="control-label col-sm-2" for="Password">Password:</label>
     <div class="col-sm-10">
-      <input type="Password" class="form-control" id="Password" placeholder="Password">
+      <input type="text" name='pass' class="form-control" id="Password" placeholder="Password">
     </div>
   </div>
 
-   <div class="form-group">
-    <label class="control-label col-sm-2" for="Level">Level:</label>
-    <div class="col-sm-10">
-      <input type="Level" class="form-control" id="Level" placeholder="Level">
-    </div>
-  </div>
-
-   <div class="form-group">
-    <label class="control-label col-sm-2" for="status">status:</label>
-    <div class="col-sm-10">
-      <input type="status" class="form-control" id="status" placeholder="status">
-    </div>
-  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="Status">Status:</label>
+    <div class="col-sm-8">
+                    <select class="form-control select2" style="width: 226px;">
+                      <option>All</option>
+                      <option>Aktif</option>
+                      <option>Tidak Aktif</option>
+                    </select>
+                  </div>
+                </div>
 
    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -162,6 +155,11 @@
 <script src="{{asset('AdminLTE-2.4.2/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('AdminLTE-2.4.2/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
+@if(Session::has('deletepetugas'))
+window.onload = function(){alert("Data Telah Dihapus");
+};
+@endif
+
   $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable({

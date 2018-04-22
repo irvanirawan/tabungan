@@ -8,96 +8,22 @@
 @section('judul')
     <section class="content-header">
       <h1>
-        Laporan 
+        Transaksi 
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="#">Laporan Per Nasabah</a></li>
+        <li><a href="#">Transaksi</a></li>
       </ol>
     </section>
 @endsection
 
 @section('content')
-
 <div class="box">
             <div class="box-header">
-             <h3 style="margin-left: 30px;margin-top: 0px;"><i> <b>Agung</b> </i></h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="col-xs-6 form-horizontal">
-
-                <div class="form-group">
-                  <label class="control-label col-xs-2" for="Alamat" style="margin-top: 5px;">Debet:</label>
-                  <div class="col-xs-10">
-                    <input type="text" class="form-control" style="width: 226px;">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label col-xs-2" for="Alamat" style="margin-top: 5px;">Kredit:</label>
-                  <div class="col-xs-10">
-                    <input type="text" class="form-control"  style="width: 226px;">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label col-sm-2" for="Alamat" style="margin-top: 5px;">Saldo:</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control"  style="width: 226px;">
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-xs-6 form-horizontal">
-
-                <div class="form-group">
-                  <label class="control-label col-xs-3" for="Alamat" style="margin-top: 5px;">Parameter:</label>
-                  <div class="col-xs-9">
-                                <div class="input-group" style="width: 226px;">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                  </div>
-                                  <input type="text" class="form-control pull-right" id="reservation" >
-                                </div>
-                    <!-- <input type="text" class="form-control"  style="width: 226px;"> -->
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label col-sm-3" for="Alamat" style="margin-top: 5px;">Transaksi:</label>
-                  <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 226px;">
-                      <option>All</option>
-                      <option>Setoran</option>
-                      <option>Tarikan</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label col-xs-3" for="Alamat" style="margin-top: 5px;">Kelas:</label>
-                  <div class="col-xs-7">
-                    <select class="form-control select2" style="width: 226px;">
-                        <option selected="selected">001</option>
-                        <option>002</option>
-                        <option disabled="disabled">003</option>
-                        <option>004</option>
-                        <option>005</option>
-                        <option>006</option>
-                        <option>007</option>
-                    </select>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-sm-6">
-
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-
-<div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Laporan</h3>
+              <h3 class="box-title">Transaksi</h3>
               <div class="box-tools pull-right">
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Setor Tunai</button>
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModaldua"><i class="fa fa-minus"></i> Tarik Tunai</button>
               </div>
             </div>
             <!-- /.box-header -->
@@ -157,7 +83,6 @@
             </div>
             <!-- /.box-body -->
           </div>
-
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -342,8 +267,6 @@
 <script src="{{asset('AdminLTE-2.4.2/plugins/iCheck/icheck.min.js')}}"></script>
 <script>
   $(function () {
-        //Date range picker
-    $('#reservation').daterangepicker()
     $('.select2').select2()
     $('#example1').DataTable()
     $('#example2').DataTable({
