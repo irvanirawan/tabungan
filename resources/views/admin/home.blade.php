@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('konten')
+@section('content')
 
 @endsection
 

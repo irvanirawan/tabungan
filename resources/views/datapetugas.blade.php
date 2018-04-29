@@ -124,15 +124,16 @@
   </div>
 
   <div class="form-group">
-    <label class="control-label col-sm-4" for="Status">Status:</label>
-    <div class="col-sm-8">
-                    <select class="form-control select2" style="width: 226px;">
+    <label class="control-label col-sm-2" for="Status">Status:</label>
+    <div class="col-sm-10">
+                    <select class="form-control select2">
                       <option>All</option>
                       <option>Aktif</option>
                       <option>Tidak Aktif</option>
                     </select>
                   </div>
                 </div>
+
 
    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
